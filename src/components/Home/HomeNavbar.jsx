@@ -3,10 +3,8 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -14,26 +12,22 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  return (
-    <motion.header
-      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        scrolled
-          ? "bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm"
-          : "bg-transparent"
-      }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-    >
+  return <motion.header className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled ? "bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm" : "bg-transparent"}`} initial={{
+    y: -100
+  }} animate={{
+    y: 0
+  }} transition={{
+    duration: 0.6,
+    ease: "easeOut"
+  }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <motion.div
-            className="flex items-center space-x-2"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.2 }}
-          >
+          {}
+          <motion.div className="flex items-center space-x-2" whileHover={{
+          scale: 1.02
+        }} transition={{
+          duration: 0.2
+        }}>
             <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">Z</span>
             </div>
@@ -47,34 +41,27 @@ export default function Navbar() {
             </div>
           </motion.div>
 
-          {/* Navigation */}
+          {}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link
-              href="#about"
-              className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
-            >
+            <Link href="#about" className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors">
               About
             </Link>
-            <Link
-              href="#features"
-              className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
-            >
+            <Link href="#features" className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors">
               Features
             </Link>
-            <Link
-              href="#contact"
-              className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
-            >
+            <Link href="#contact" className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors">
               Contact
             </Link>
           </nav>
 
-          {/* CTA Button */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-          >
+          {}
+          <motion.div whileHover={{
+          scale: 1.05
+        }} whileTap={{
+          scale: 0.95
+        }} transition={{
+          duration: 0.2
+        }}>
             <Link href="/pre-launching">
               <button className="bg-black text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors shadow-sm">
                 Join Waitlist
@@ -83,6 +70,5 @@ export default function Navbar() {
           </motion.div>
         </div>
       </div>
-    </motion.header>
-  );
+    </motion.header>;
 }

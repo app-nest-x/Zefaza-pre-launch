@@ -2,56 +2,73 @@
 
 import { motion } from "framer-motion";
 import { Rocket, Target, Globe, TrendingUp, Clock, Award, Users, Zap } from "lucide-react";
-
-const stats = [
-  { icon: Target, number: "100%", label: "Local Focus" },
-  { icon: Rocket, number: "2024", label: "Launch Year" },
-  { icon: Globe, number: "Smart", label: "Cities Ready" },
-  { icon: TrendingUp, number: "∞", label: "Growth Potential" },
-];
-
-const values = [
-  {
-    icon: Clock,
-    title: "Speed & Efficiency",
-    description: "Lightning-fast deliveries and instant connections between buyers and sellers in your neighborhood."
-  },
-  {
-    icon: Award,
-    title: "Quality Assurance",
-    description: "Every seller is verified and every product is quality-checked to ensure the best experience."
-  },
-  {
-    icon: Users,
-    title: "Community First",
-    description: "Building stronger local communities by empowering neighborhood businesses and connections."
-  },
-  {
-    icon: Zap,
-    title: "Innovation",
-    description: "Cutting-edge technology that makes local commerce smarter, faster, and more accessible."
-  }
-];
-
-const milestones = [
-  { year: "2024 Q1", event: "Concept & Research", status: "completed" },
-  { year: "2024 Q2", event: "Platform Development", status: "completed" },
-  { year: "2024 Q3", event: "Beta Testing", status: "in-progress" },
-  { year: "2024 Q4", event: "Public Launch", status: "upcoming" },
-];
-
+const stats = [{
+  icon: Target,
+  number: "100%",
+  label: "Local Focus"
+}, {
+  icon: Rocket,
+  number: "2024",
+  label: "Launch Year"
+}, {
+  icon: Globe,
+  number: "Smart",
+  label: "Cities Ready"
+}, {
+  icon: TrendingUp,
+  number: "∞",
+  label: "Growth Potential"
+}];
+const values = [{
+  icon: Clock,
+  title: "Speed & Efficiency",
+  description: "Lightning-fast deliveries and instant connections between buyers and sellers in your neighborhood."
+}, {
+  icon: Award,
+  title: "Quality Assurance",
+  description: "Every seller is verified and every product is quality-checked to ensure the best experience."
+}, {
+  icon: Users,
+  title: "Community First",
+  description: "Building stronger local communities by empowering neighborhood businesses and connections."
+}, {
+  icon: Zap,
+  title: "Innovation",
+  description: "Cutting-edge technology that makes local commerce smarter, faster, and more accessible."
+}];
+const milestones = [{
+  year: "2024 Q1",
+  event: "Concept & Research",
+  status: "completed"
+}, {
+  year: "2024 Q2",
+  event: "Platform Development",
+  status: "completed"
+}, {
+  year: "2024 Q3",
+  event: "Beta Testing",
+  status: "in-progress"
+}, {
+  year: "2024 Q4",
+  event: "Public Launch",
+  status: "upcoming"
+}];
 export default function AboutSection() {
-  return (
-    <section id="about" className="py-24 bg-gray-50">
+  return <section id="about" className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
-          {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          {}
+          <motion.div initial={{
+          opacity: 0,
+          x: -30
+        }} whileInView={{
+          opacity: 1,
+          x: 0
+        }} transition={{
+          duration: 0.8
+        }} viewport={{
+          once: true
+        }}>
             <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-6 tracking-tight">
               Reimagining
               <span className="font-medium gradient-text"> Local Commerce</span>
@@ -71,39 +88,53 @@ export default function AboutSection() {
               </p>
             </div>
 
-            <motion.div
-              className="mt-8"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
+            <motion.div className="mt-8" initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.6,
+            delay: 0.3
+          }} viewport={{
+            once: true
+          }}>
               <button className="inline-flex items-center px-6 py-3 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-colors">
                 Learn More About Our Vision
               </button>
             </motion.div>
           </motion.div>
 
-          {/* Stats Grid */}
-          <motion.div
-            className="grid grid-cols-2 gap-6"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
+          {}
+          <motion.div className="grid grid-cols-2 gap-6" initial={{
+          opacity: 0,
+          x: 30
+        }} whileInView={{
+          opacity: 1,
+          x: 0
+        }} transition={{
+          duration: 0.8,
+          delay: 0.2
+        }} viewport={{
+          once: true
+        }}>
             {stats.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <motion.div
-                  key={stat.label}
-                  className="bg-white p-8 rounded-2xl text-center shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -5 }}
-                >
+            const Icon = stat.icon;
+            return <motion.div key={stat.label} className="bg-white p-8 rounded-2xl text-center shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300" initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              duration: 0.6,
+              delay: 0.4 + index * 0.1
+            }} viewport={{
+              once: true
+            }} whileHover={{
+              y: -5
+            }}>
                   <div className="flex justify-center mb-4">
                     <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
                       <Icon className="w-6 h-6 text-gray-600" />
@@ -115,20 +146,23 @@ export default function AboutSection() {
                   <div className="text-sm font-medium text-gray-600 uppercase tracking-wide">
                     {stat.label}
                   </div>
-                </motion.div>
-              );
-            })}
+                </motion.div>;
+          })}
           </motion.div>
         </div>
 
-        {/* Values Section */}
-        <motion.div
-          className="mb-24"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
+        {}
+        <motion.div className="mb-24" initial={{
+        opacity: 0,
+        y: 30
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        duration: 0.8
+      }} viewport={{
+        once: true
+      }}>
           <div className="text-center mb-16">
             <h3 className="text-3xl md:text-4xl font-light text-gray-900 mb-4 tracking-tight">
               Our Core Values
@@ -140,17 +174,21 @@ export default function AboutSection() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => {
-              const Icon = value.icon;
-              return (
-                <motion.div
-                  key={value.title}
-                  className="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-md transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -5 }}
-                >
+            const Icon = value.icon;
+            return <motion.div key={value.title} className="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-md transition-all duration-300" initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              duration: 0.6,
+              delay: index * 0.1
+            }} viewport={{
+              once: true
+            }} whileHover={{
+              y: -5
+            }}>
                   <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-4">
                     <Icon className="w-6 h-6 text-gray-600" />
                   </div>
@@ -160,20 +198,23 @@ export default function AboutSection() {
                   <p className="text-gray-600 text-sm leading-relaxed">
                     {value.description}
                   </p>
-                </motion.div>
-              );
-            })}
+                </motion.div>;
+          })}
           </div>
         </motion.div>
 
-        {/* Timeline */}
-        <motion.div
-          className="mb-24"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
+        {}
+        <motion.div className="mb-24" initial={{
+        opacity: 0,
+        y: 30
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        duration: 0.8
+      }} viewport={{
+        once: true
+      }}>
           <div className="text-center mb-16">
             <h3 className="text-3xl md:text-4xl font-light text-gray-900 mb-4 tracking-tight">
               Our Journey
@@ -184,25 +225,20 @@ export default function AboutSection() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {milestones.map((milestone, index) => (
-              <motion.div
-                key={milestone.year}
-                className="relative"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className={`p-6 rounded-2xl border ${
-                  milestone.status === 'completed' ? 'bg-green-50 border-green-200' :
-                  milestone.status === 'in-progress' ? 'bg-blue-50 border-blue-200' :
-                  'bg-gray-50 border-gray-200'
-                }`}>
-                  <div className={`w-3 h-3 rounded-full mb-4 ${
-                    milestone.status === 'completed' ? 'bg-green-500' :
-                    milestone.status === 'in-progress' ? 'bg-blue-500' :
-                    'bg-gray-400'
-                  }`} />
+            {milestones.map((milestone, index) => <motion.div key={milestone.year} className="relative" initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.6,
+            delay: index * 0.1
+          }} viewport={{
+            once: true
+          }}>
+                <div className={`p-6 rounded-2xl border ${milestone.status === 'completed' ? 'bg-green-50 border-green-200' : milestone.status === 'in-progress' ? 'bg-blue-50 border-blue-200' : 'bg-gray-50 border-gray-200'}`}>
+                  <div className={`w-3 h-3 rounded-full mb-4 ${milestone.status === 'completed' ? 'bg-green-500' : milestone.status === 'in-progress' ? 'bg-blue-500' : 'bg-gray-400'}`} />
                   <div className="text-sm font-medium text-gray-500 mb-1">
                     {milestone.year}
                   </div>
@@ -210,19 +246,23 @@ export default function AboutSection() {
                     {milestone.event}
                   </div>
                 </div>
-              </motion.div>
-            ))}
+              </motion.div>)}
           </div>
         </motion.div>
 
-        {/* Mission Statement */}
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          viewport={{ once: true }}
-        >
+        {}
+        <motion.div className="text-center" initial={{
+        opacity: 0,
+        y: 30
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        duration: 0.8,
+        delay: 0.5
+      }} viewport={{
+        once: true
+      }}>
           <div className="max-w-4xl mx-auto bg-white p-12 rounded-3xl shadow-sm border border-gray-100">
             <h3 className="text-2xl md:text-3xl font-light text-gray-900 mb-6 tracking-tight">
               Our Mission
@@ -236,6 +276,5 @@ export default function AboutSection() {
           </div>
         </motion.div>
       </div>
-    </section>
-  );
-} 
+    </section>;
+}

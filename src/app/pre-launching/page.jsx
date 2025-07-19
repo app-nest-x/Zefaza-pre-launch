@@ -14,23 +14,25 @@ import CustomtestimonialSection from "@/components/DEMO/CustomtestimonialSection
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { motion } from "framer-motion";
-
 const page = () => {
-  return (
-    <div className="w-full min-h-screen bg-white">
-      {/* Back to Home Button */}
-      <motion.div 
-        className="fixed top-6 left-6 z-50"
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6 }}
-      >
+  return <div className="w-full min-h-screen bg-white">
+      {}
+      <motion.div className="fixed top-6 left-6 z-50" initial={{
+      opacity: 0,
+      x: -20
+    }} animate={{
+      opacity: 1,
+      x: 0
+    }} transition={{
+      duration: 0.6
+    }}>
         <Link href="/">
-          <motion.div
-            className="flex items-center space-x-2 bg-white/90 backdrop-blur-sm border border-gray-200 px-4 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-            whileHover={{ scale: 1.05, x: -5 }}
-            whileTap={{ scale: 0.95 }}
-          >
+          <motion.div className="flex items-center space-x-2 bg-white/90 backdrop-blur-sm border border-gray-200 px-4 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300" whileHover={{
+          scale: 1.05,
+          x: -5
+        }} whileTap={{
+          scale: 0.95
+        }}>
             <ArrowLeft className="w-4 h-4 text-gray-700" />
             <span className="text-sm font-medium text-gray-700">Back to Home</span>
           </motion.div>
@@ -63,8 +65,6 @@ const page = () => {
       </div>
       
       <PreLaunchFooter />
-    </div>
-  );
+    </div>;
 };
-
 export default page;
