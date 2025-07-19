@@ -2,194 +2,141 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Github, Twitter, Instagram, Mail } from "lucide-react";
+import { Mail, Twitter, Linkedin, Github } from "lucide-react";
 
 export default function HomeFooter() {
-  const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.4, 0, 0.2, 1],
-        staggerChildren: 0.1,
-      },
-    },
-  };
+  const currentYear = new Date().getFullYear();
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] },
-    },
-  };
+  const socialLinks = [
+    { icon: Twitter, href: "https://twitter.com/zefaza", label: "Twitter" },
+    { icon: Linkedin, href: "https://linkedin.com/company/zefaza", label: "LinkedIn" },
+    { icon: Github, href: "https://github.com/zefaza", label: "GitHub" },
+    { icon: Mail, href: "mailto:hello@zefaza.com", label: "Email" },
+  ];
+
+  const links = [
+    { name: "About", href: "#about" },
+    { name: "Features", href: "#features" },
+    { name: "Contact", href: "#contact" },
+    { name: "Privacy", href: "/privacy" },
+    { name: "Terms", href: "/terms" },
+  ];
 
   return (
-    <motion.footer
-      className="bg-gradient-to-t from-black to-gray-800 text-white py-12 relative overflow-hidden rounded-t-4xl w-full"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
-      <div className="relative top-13 md:top-10">
-        {/* Decorative SVG Wave */}
-        <svg
-          className="absolute top-0 w-full h-24 opacity-20"
-          viewBox="0 0 1440 100"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0 50C200 80 400 20 720 50C1040 80 1240 20 1440 50"
-            stroke="white"
-            strokeWidth="2"
-            fill="none"
-          />
-        </svg>
-
-        <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="bg-gray-50 border-t border-gray-100">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
-          <motion.div variants={itemVariants} className="space-y-4">
-            <h2 className="text-3xl font-extrabold">
-              ZEFAZA Industries Pvt. Ltd.
-            </h2>
-            <p className="text-sm text-gray-300">
-              Empowering innovation with cutting-edge solutions. Join us in
-              shaping the future.
+          <motion.div
+            className="space-y-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-lg">Z</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="font-semibold text-lg text-gray-900 tracking-tight">
+                  Zefaza
+                </span>
+                <span className="text-xs text-gray-500 -mt-1">
+                  Smart Commerce
+                </span>
+              </div>
+            </div>
+            <p className="text-gray-600 text-sm leading-relaxed max-w-xs">
+              Revolutionizing hyperlocal commerce for smart cities. Coming soon to transform how you connect with your local community.
             </p>
           </motion.div>
 
-          {/* Quick Links with <Link /> */}
-          <motion.div variants={itemVariants} className="space-y-4">
-            <h3 className="text-lg font-semibold">Quick Links</h3>
+          {/* Quick Links */}
+          <motion.div
+            className="space-y-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="font-semibold text-gray-900">Quick Links</h3>
             <ul className="space-y-2">
-              <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
-                <Link
-                  href="/pre-launching"
-                  className="text-gray-300 hover:text-white transition-colors duration-300"
-                >
-                  About
-                </Link>
-              </motion.li>
-              <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
-                <Link
-                  href="/pre-launching"
-                  className="text-gray-300 hover:text-white transition-colors duration-300"
-                >
-                  Sellers
-                </Link>
-              </motion.li>
-              <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
-                <Link
-                  href="/pre-launching"
-                  className="text-gray-300 hover:text-white transition-colors duration-300"
-                >
-                  Services
-                </Link>
-              </motion.li>
-              <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
-                <Link
-                  href="/"
-                  className="text-gray-300 hover:text-white transition-colors duration-300"
-                >
-                  Home
-                </Link>
-              </motion.li>
+              {links.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-600 hover:text-gray-900 text-sm transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </motion.div>
 
           {/* Newsletter */}
-          <motion.div variants={itemVariants} className="space-y-4">
-            <h3 className="text-lg font-semibold">Stay Updated</h3>
-            <p className="text-sm text-gray-300">
-              Subscribe to our newsletter for the latest updates.
+          <motion.div
+            className="space-y-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="font-semibold text-gray-900">Stay Updated</h3>
+            <p className="text-gray-600 text-sm">
+              Get notified when we launch and receive exclusive updates about our progress.
             </p>
             <div className="flex gap-2">
-              <Input
+              <input
                 type="email"
-                placeholder="Enter your email"
-                className="bg-white text-black border-gray-300 focus:border-white"
+                placeholder="Enter email"
+                className="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-gray-400 transition-colors"
               />
-              <Button
-                className="bg-white text-black hover:bg-gray-200 transition-colors duration-300"
-                onClick={() => alert("Subscribed!")}
-              >
-                <motion.span
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                >
-                  Subscribe
-                </motion.span>
-              </Button>
+              <button className="px-4 py-2 bg-black text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors">
+                Notify Me
+              </button>
             </div>
           </motion.div>
         </div>
 
-        {/* Social Icons */}
+        {/* Social Links & Copyright */}
         <motion.div
-          className="mt-8 flex justify-center gap-6"
-          variants={itemVariants}
+          className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
         >
-          <motion.a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            whileHover={{ scale: 1.2, rotate: 5 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Github className="h-6 w-6 text-gray-300 hover:text-white" />
-          </motion.a>
-          <motion.a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Twitter"
-            whileHover={{ scale: 1.2, rotate: 5 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Twitter className="h-6 w-6 text-gray-300 hover:text-white" />
-          </motion.a>
-          <motion.a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            whileHover={{ scale: 1.2, rotate: 5 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Instagram className="h-6 w-6 text-gray-300 hover:text-white" />
-          </motion.a>
-          <motion.a
-            href="mailto:info@example.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Email"
-            whileHover={{ scale: 1.2, rotate: 5 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Mail className="h-6 w-6 text-gray-300 hover:text-white" />
-          </motion.a>
-        </motion.div>
+          {/* Social Links */}
+          <div className="flex space-x-4">
+            {socialLinks.map((social, index) => {
+              const Icon = social.icon;
+              return (
+                <motion.a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center text-gray-600 hover:text-gray-900 hover:border-gray-300 transition-all duration-200"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                >
+                  <Icon className="w-4 h-4" />
+                </motion.a>
+              );
+            })}
+          </div>
 
-        {/* Copyright */}
-        <motion.div
-          className="mt-8 text-center text-sm text-gray-300"
-          variants={itemVariants}
-        >
-          &copy; {new Date().getFullYear()} ZEFAZA. All rights reserved.
+          {/* Copyright */}
+          <div className="text-sm text-gray-500">
+            © {currentYear} Zefaza Industries Pvt. Ltd. All rights reserved.
+          </div>
         </motion.div>
       </div>
-    </motion.footer>
+    </footer>
   );
 }

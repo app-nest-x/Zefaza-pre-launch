@@ -61,7 +61,7 @@ const CustomNavbar = () => {
       animate="visible"
     >
       <div className="bg-white/90 backdrop-blur-sm border border-gray-200 p-4 rounded-lg w-full max-w-6xl mx-4 flex items-center justify-between md:gap-8">
-        {/* Logo */}
+        {}
         <motion.div
           className="font-extrabold text-2xl text-black"
           variants={itemVariants}
@@ -69,7 +69,7 @@ const CustomNavbar = () => {
           ZEFAZA
         </motion.div>
 
-        {/* Desktop Nav Links */}
+        {}
         <motion.div className="hidden md:flex md:gap-6" variants={itemVariants}>
           {navLinks.map(({ name, href }) => (
             <motion.div
@@ -88,7 +88,7 @@ const CustomNavbar = () => {
           ))}
         </motion.div>
 
-        {/* Desktop Buttons */}
+        {}
         <motion.div className="hidden md:flex md:gap-4" variants={itemVariants}>
           {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
@@ -105,7 +105,7 @@ const CustomNavbar = () => {
           </motion.div>
         </motion.div>
 
-        {/* Hamburger */}
+        {}
         <motion.div
           className="md:hidden"
           whileHover={{ scale: 1.1 }}
@@ -122,7 +122,7 @@ const CustomNavbar = () => {
         </motion.div>
       </div>
 
-      {/* Mobile Menu */}
+      {}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -180,12 +180,12 @@ const CustomNavbar = () => {
         )}
       </AnimatePresence>
 
-      {/* Decorative SVG */}
+      {}
       <svg
         className="absolute top-0 left-0 w-full h-12 opacity-10 -z-10"
         viewBox="0 0 1440 48"
         fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+        xmlns="http:
       >
         <path
           d="M0 24C200 40 400 8 720 24C1040 40 1240 8 1440 24"

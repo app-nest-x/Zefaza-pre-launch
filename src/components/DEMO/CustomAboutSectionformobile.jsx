@@ -64,12 +64,12 @@ const CustomAboutSection = () => {
           </p>
         </motion.div>
 
-        {/* Main Card */}
+        {/* Content */}
         <motion.div
           className="shadow-2xl rounded-2xl w-full max-w-6xl flex flex-col items-center justify-center gap-6 p-6 md:p-8 bg-white/5 backdrop-blur-sm"
           variants={itemVariants}
         >
-          {/* Top Section */}
+          {/* Logo and Quote */}
           <motion.div
             className="w-full max-w-lg shadow-2xl flex flex-col gap-4 p-4 items-center justify-center"
             variants={itemVariants}
@@ -97,7 +97,7 @@ const CustomAboutSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Bottom Section */}
+          {/* Features */}
           <motion.div
             className="w-full flex flex-wrap justify-center md:justify-between items-center gap-6 relative"
             variants={itemVariants}
@@ -155,6 +155,7 @@ const CustomAboutSection = () => {
               </motion.div>
             ))}
 
+            {/* Trusted by Customers */}
             <motion.div
               className="bg-white rounded-md h-[80px] w-full md:w-[220px] flex items-center justify-center shadow-2xl mt-4 md:mt-0"
               whileHover={{ scale: 1.05 }}

@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 export const ThreeDMarquee = ({ images, className }) => {
-  // Split the images array into 4 equal parts
+  
   const chunkSize = Math.ceil(images.length / 4);
   const chunks = Array.from({ length: 4 }, (_, colIndex) => {
     const start = colIndex * chunkSize;
@@ -74,7 +74,7 @@ const GridLineHorizontal = ({ className, offset }) => {
         "--height": "1px",
         "--width": "5px",
         "--fade-stop": "90%",
-        "--offset": offset || "200px", //-100px if you want to keep the line inside
+        "--offset": offset || "200px", 
         "--color-dark": "rgba(255, 255, 255, 0.2)",
         maskComposite: "exclude",
       }}
@@ -101,7 +101,7 @@ const GridLineVertical = ({ className, offset }) => {
         "--height": "5px",
         "--width": "1px",
         "--fade-stop": "90%",
-        "--offset": offset || "150px", //-100px if you want to keep the line inside
+        "--offset": offset || "150px", 
         "--color-dark": "rgba(255, 255, 255, 0.2)",
         maskComposite: "exclude",
       }}

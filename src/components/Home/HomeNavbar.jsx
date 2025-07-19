@@ -1,63 +1,88 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 z-50 w-full bg-black/80 backdrop-blur-md border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-        {/* Brand Name + Slogan */}
-        <motion.div
-          className="flex flex-col leading-tight"
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: 0 }}
-        >
-          <span className="text-white font-bold text-xl tracking-wide">
-            ZEFAZA
-          </span>
-          <span className="text-sm text-white/60 font-light">
-            Smart Commerce for Smart Cities
-          </span>
-        </motion.div>
-
-        {/* Visit Button (visible on all sizes) */}
-        <motion.div
-          initial={{ opacity: 0, x: 10 }}
-          animate={{ opacity: 1, x: 0 }}
-        >
-          <Link href="/pre-launching">
-            <button className="px-4 py-2 text-sm font-medium text-black bg-white rounded-lg hover:bg-gray-100 transition duration-300">
-              Visit Pre-Launching
-            </button>
-          </Link>
-        </motion.div>
-
-        {/* Mobile Menu Icon (optional) */}
-        <button
-          className="md:hidden text-white ml-2"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* Empty dropdown placeholder for mobile */}
-      <AnimatePresence>
-        {isOpen && (
+    <motion.header
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+        scrolled
+          ? "bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm"
+          : "bg-transparent"
+      }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
           <motion.div
-            className="md:hidden bg-black border-t border-white/10"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 0, opacity: 0 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-          />
-        )}
-      </AnimatePresence>
-    </header>
+            className="flex items-center space-x-2"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">Z</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="font-semibold text-lg text-gray-900 tracking-tight">
+                Zefaza
+              </span>
+              <span className="text-xs text-gray-500 -mt-1">
+                Smart Commerce
+              </span>
+            </div>
+          </motion.div>
+
+          {/* Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
+            <Link
+              href="#about"
+              className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
+            >
+              About
+            </Link>
+            <Link
+              href="#features"
+              className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
+            >
+              Features
+            </Link>
+            <Link
+              href="#contact"
+              className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
+            >
+              Contact
+            </Link>
+          </nav>
+
+          {/* CTA Button */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Link href="/pre-launching">
+              <button className="bg-black text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors shadow-sm">
+                Join Waitlist
+              </button>
+            </Link>
+          </motion.div>
+        </div>
+      </div>
+    </motion.header>
   );
 }

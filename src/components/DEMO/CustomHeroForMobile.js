@@ -2,15 +2,15 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
-  Lightbulb,
+  Zap,
   Shield,
-  Store,
-  Truck,
-  Star,
+  Smartphone,
+  Users,
   Package,
-  Headset,
+  Headphones,
 } from "lucide-react";
 import Image from "next/image";
+
 export default function HeroForMobile() {
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -36,119 +36,249 @@ export default function HeroForMobile() {
 
   return (
     <motion.section
-      className="relative z-10 w-full max-w-7xl mx-auto px-4 py-20 text-center bg-gray-200 rounded-4xl min-h-screen"
+      className="relative z-10 w-full max-w-7xl mx-auto px-4 py-16 text-center bg-gradient-to-br from-gray-50 to-white rounded-3xl shadow-sm border border-gray-100 min-h-screen flex flex-col justify-center"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
-      {/* Decorative SVG Background (hidden on mobile) */}
-      <svg
-        className="absolute inset-0 opacity-10 hidden md:block"
-        viewBox="0 0 1440 720"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M0 360C200 500 400 200 720 360C1040 520 1240 220 1440 360"
-          stroke="white"
-          strokeWidth="2"
-          strokeOpacity="0.3"
-        />
-        <circle cx="200" cy="100" r="50" fill="white" fillOpacity="0.2" />
-        <circle cx="1240" cy="600" r="70" fill="white" fillOpacity="0.2" />
-      </svg>
-
-      {/* Icons & Avatars */}
+      {/* Mobile Platform Layout */}
       <motion.div
-        className="relative w-full h-[300px] sm:h-[360px] md:h-[500px] flex items-center justify-center"
+        className="relative w-full h-[280px] flex items-center justify-center mb-8"
         variants={itemVariants}
       >
-        {/* Center Icon */}
+        {/* Center Logo */}
         <motion.div
-          className="w-29 h-29 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-2xl z-10"
-          whileHover={{ scale: 1.1 }}
+          className="relative w-24 h-24 bg-white rounded-2xl flex items-center justify-center shadow-lg z-20 border border-gray-200"
+          whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
         >
-          {/* <Star className="w-8 h-8 sm:w-10 sm:h-10 text-yellow-400 fill-current" /> */}
-          <Image
-            src={"/logo.svg"}
-            alt="Logo of Zefaza"
-            width={150}
-            height={150}
+          <Image src={"/logo.svg"} alt="Zefaza logo" width={80} height={80} />
+          
+          {/* Pulse ring */}
+          <motion.div
+            className="absolute inset-0 rounded-2xl border-2 border-blue-200"
+            animate={{ scale: [1, 1.3, 1], opacity: [1, 0, 1] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           />
         </motion.div>
 
-        {/* Top Left Icon */}
+        {/* Top Icons */}
         <motion.div
-          className="absolute left-10 -top-4 sm:left-24 sm:-top-6 md:left-52 md:-top-7 w-18 h-18 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-2xl border-2 border-black"
-          whileHover={{ scale: 1.1, rotate: 5 }}
+          className="absolute top-2 left-16 w-12 h-12 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl flex items-center justify-center shadow-sm border border-blue-200"
+          whileHover={{ scale: 1.1, y: -3 }}
           transition={{ duration: 0.3 }}
         >
-          <Lightbulb className="w-10 h-10 sm:w-8 sm:h-8 text-black shadow-2xl" />
+          <Zap className="w-6 h-6 text-blue-600" />
         </motion.div>
 
-        {/* Bottom Left Icon */}
         <motion.div
-          className="absolute -bottom-6 left-14 sm:left-32 md:left-72 w-14 h-14 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow border-2 border-black"
-          whileHover={{ scale: 1.1, rotate: 5 }}
+          className="absolute top-2 right-16 w-12 h-12 bg-gradient-to-br from-green-50 to-green-100 rounded-xl flex items-center justify-center shadow-sm border border-green-200"
+          whileHover={{ scale: 1.1, y: -3 }}
           transition={{ duration: 0.3 }}
         >
-          <Store className="w-10 h-10 sm:w-8 sm:h-8 text-black" />
+          <Shield className="w-6 h-6 text-green-600" />
         </motion.div>
 
-        {/* Top Right Icon */}
+        {/* Bottom Icons */}
         <motion.div
-          className="absolute -top-4 right-10 sm:right-24 md:right-[300px] w-18 h-18 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow border-2 border-black"
-          whileHover={{ scale: 1.1, rotate: 5 }}
+          className="absolute bottom-2 left-16 w-12 h-12 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl flex items-center justify-center shadow-sm border border-purple-200"
+          whileHover={{ scale: 1.1, y: -3 }}
           transition={{ duration: 0.3 }}
         >
-          <Shield className="w-10 h-10 sm:w-8 sm:h-8 text-black" />
+          <Smartphone className="w-6 h-6 text-purple-600" />
         </motion.div>
 
-        {/* Bottom Right Icon */}
         <motion.div
-          className="absolute -bottom-6 right-16 sm:right-32 md:right-44 w-14 h-14 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow border-2 border-black"
-          whileHover={{ scale: 1.1, rotate: 5 }}
+          className="absolute bottom-2 right-16 w-12 h-12 bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl flex items-center justify-center shadow-sm border border-orange-200"
+          whileHover={{ scale: 1.1, y: -3 }}
           transition={{ duration: 0.3 }}
         >
-          <Truck className="w-10 h-10 sm:w-8 sm:h-8 text-black" />
+          <Users className="w-6 h-6 text-orange-600" />
         </motion.div>
 
-        {/* Avatars */}
+        {/* Side Icons */}
         <motion.div
-          className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 w-15 h-15 sm:w-28 sm:h-28 md:w-36 md:h-36 rounded-2xl overflow-hidden shadow border-2 border-black"
-          whileHover={{ scale: 1.05 }}
+          className="absolute left-2 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl flex items-center justify-center shadow-sm border border-indigo-200"
+          whileHover={{ scale: 1.1, x: 3 }}
+          transition={{ duration: 0.3 }}
         >
-          <Package className="w-12 h-12 text-black relative top-1 left-1" />
+          <Package className="w-7 h-7 text-indigo-600" />
         </motion.div>
 
         <motion.div
-          className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 w-15 h-15 sm:w-28 sm:h-28 md:w-36 md:h-36 rounded-2xl overflow-hidden shadow border-2 border-black"
-          whileHover={{ scale: 1.05 }}
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-gradient-to-br from-pink-50 to-pink-100 rounded-xl flex items-center justify-center shadow-sm border border-pink-200"
+          whileHover={{ scale: 1.1, x: -3 }}
+          transition={{ duration: 0.3 }}
         >
-          <Headset className="w-12 h-12 text-black relative top-1 left-1" />
+          <Headphones className="w-7 h-7 text-pink-600" />
         </motion.div>
+
+        {/* Mobile Connecting Lines */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">
+          {/* Simplified lines for mobile */}
+          <motion.line
+            x1="30%" y1="25%" x2="50%" y2="50%"
+            stroke="#3B82F6"
+            strokeWidth="1.5"
+            strokeDasharray="3,3"
+            strokeOpacity="0.6"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          />
+          <motion.line
+            x1="70%" y1="25%" x2="50%" y2="50%"
+            stroke="#10B981"
+            strokeWidth="1.5"
+            strokeDasharray="3,3"
+            strokeOpacity="0.6"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 1, delay: 0.7 }}
+          />
+          <motion.line
+            x1="30%" y1="75%" x2="50%" y2="50%"
+            stroke="#8B5CF6"
+            strokeWidth="1.5"
+            strokeDasharray="3,3"
+            strokeOpacity="0.6"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 1, delay: 0.9 }}
+          />
+          <motion.line
+            x1="70%" y1="75%" x2="50%" y2="50%"
+            stroke="#F59E0B"
+            strokeWidth="1.5"
+            strokeDasharray="3,3"
+            strokeOpacity="0.6"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 1, delay: 1.1 }}
+          />
+          <motion.line
+            x1="15%" y1="50%" x2="50%" y2="50%"
+            stroke="#6366F1"
+            strokeWidth="1.5"
+            strokeDasharray="3,3"
+            strokeOpacity="0.6"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 1, delay: 1.3 }}
+          />
+          <motion.line
+            x1="85%" y1="50%" x2="50%" y2="50%"
+            stroke="#EC4899"
+            strokeWidth="1.5"
+            strokeDasharray="3,3"
+            strokeOpacity="0.6"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 1, delay: 1.5 }}
+          />
+
+          {/* Connection dots */}
+          <motion.circle
+            cx="40%" cy="37%" r="2"
+            fill="#3B82F6"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.3, delay: 1.8 }}
+          />
+          <motion.circle
+            cx="60%" cy="37%" r="2"
+            fill="#10B981"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.3, delay: 2 }}
+          />
+          <motion.circle
+            cx="40%" cy="63%" r="2"
+            fill="#8B5CF6"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.3, delay: 2.2 }}
+          />
+          <motion.circle
+            cx="60%" cy="63%" r="2"
+            fill="#F59E0B"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.3, delay: 2.4 }}
+          />
+        </svg>
       </motion.div>
 
-      {/* Heading & CTA */}
-      <motion.div className="mt-15 relative top-5 sm:mt-12" variants={itemVariants}>
-        <h1 className="sm:text-4xl md:text-6xl font-extrabold text-black text-5xl mb-4  leading-tight">
-          All-in-one <br /> Platform
-        </h1>
-        <p className="text-sm sm:text-base md:text-lg text-gray-900 font-bold max-w-xl mx-auto mb-6 px-2">
-          Zefaza is a modern, all-in-one platform designed to perfectly fit your
-          business needs
-        </p>
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ duration: 0.3 }}
+      {/* Platform Title */}
+      <motion.div variants={itemVariants} className="mb-8 px-4">
+        <motion.h1 
+          className="text-3xl md:text-4xl font-light text-gray-900 mb-4 tracking-tight"
+          variants={itemVariants}
         >
-          <Button className="rounded-full px-6 sm:px-8 py-3 sm:py-4 text-white bg-gradient-to-r from-orange-500 to-red-500 hover:opacity-90 text-sm sm:text-base md:text-lg">
-            Request a Demo
+          All-in-One <span className="font-medium bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Platform</span>
+        </motion.h1>
+        <motion.p 
+          className="text-lg text-gray-600 leading-relaxed"
+          variants={itemVariants}
+        >
+          Connecting local businesses, service providers, and customers in one unified ecosystem
+        </motion.p>
+      </motion.div>
+
+      {/* CTA Section */}
+      <motion.div
+        className="flex flex-col gap-4 px-4"
+        variants={itemVariants}
+      >
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:opacity-90 py-3 text-lg font-medium rounded-full shadow-lg">
+            Join Pre-Launch
+          </Button>
+        </motion.div>
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          <Button 
+            variant="outline" 
+            className="w-full border-gray-300 text-gray-700 hover:bg-gray-50 py-3 text-lg font-medium rounded-full"
+          >
+            Learn More
           </Button>
         </motion.div>
       </motion.div>
+
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none">
+        <motion.div
+          className="absolute -top-16 -left-16 w-32 h-32 bg-blue-100 rounded-full opacity-15 blur-2xl"
+          animate={{
+            scale: [1, 1.15, 1],
+            opacity: [0.15, 0.25, 0.15],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute -bottom-16 -right-16 w-40 h-40 bg-purple-100 rounded-full opacity-15 blur-2xl"
+          animate={{
+            scale: [1.15, 1, 1.15],
+            opacity: [0.25, 0.15, 0.25],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+        />
+      </div>
     </motion.section>
   );
 }
